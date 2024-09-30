@@ -1,5 +1,6 @@
 WEBEasy2MD is a molecular dynamics simulation platform that easy to do MD without learning MD knowledge.
 
+We provide some analysis codes of molecular dynamics simulation to help you analyze the data.
 <!--
 **easy2md/easy2md** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
