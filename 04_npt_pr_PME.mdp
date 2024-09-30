@@ -1,0 +1,56 @@
+; VARIOUS PREPROCESSING OPTIONS
+define                   = -DPOSRES
+
+; RUN CONTROL PARAMETERS
+integrator               = md
+dt                       = 0.002
+nsteps                   = 50000  
+
+; OUTPUT CONTROL OPTIONS
+nstxout                 = 500   ; save coordinates every ps
+nstvout                 = 500   ; save velocities every ps
+nstfout                 = 500   ; save forces every ps
+nstenergy               = 500   ; save energies every ps
+nstlog                  = 500   ; update log file every ps
+;energygrps              = Protein Non-Protein
+
+; NEIGHBORSEARCHING PARAMETERS
+nstlist                  = 10
+cutoff-scheme              = Verlet
+ns_type                  = grid
+pbc                     = xyz
+rlist                    = 1.2
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+coulombtype              = PME	; Particle Mesh Ewald for long-range electrostatics
+pme_order		 = 4	; cubic interpolation
+fourierspacing		 = 0.16	; grid spacing for FFT
+rcoulomb                 = 1.2
+vdw-type                 = Cut-off
+vdw-modifier              = force-switch
+rvdw                     = 1.2
+rvdw-switch                = 1.0
+
+; Temperature coupling  
+Tcoupl                   = v-rescale
+tc-grps                  = Protein  Non-Protein
+tau_t                    = 0.1      0.1
+ref_t                    = 300      300
+
+; Pressure coupling     
+Pcoupl                   = Berendsen
+Pcoupltype               = Isotropic
+tau_p                    = 1.0
+compressibility          = 4.5e-5
+ref_p                    = 1.0
+refcoord_scaling         = COM
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen_vel                  = no
+
+; OPTIONS FOR BONDS 
+constraints              = all-bonds
+continuation             = yes          ; continuation from NVT
+constraint_algorithm     = lincs        ; holonomic constraints
+lincs_iter               = 1            ; accuracy of LINCS
+lincs_order              = 4            ; also related to accuracy
