@@ -1,4 +1,3 @@
-Easy2MD分子模拟|一键分子动力学模拟|一站式分子对接与分子模拟
 WEBEasy2MD is a molecular dynamics simulation platform that easy to do MD without learning MD knowledge.
 
 <!--
