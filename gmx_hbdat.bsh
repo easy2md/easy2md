@@ -3,7 +3,7 @@ for((i=0; i<N; i++)); do
 	[[ $arg =~ -s   ]] && { tpr=$val; }
 	[[ $arg =~ -m   ]] && { xpm=$val; }
 done
-
+ 
 $dump -s $tpr -quiet 2>>/dev/null | awk -v ndx=$ndx -v xpm=$xpm '
 	BEGIN {
 		isHB=0; nhb=0
